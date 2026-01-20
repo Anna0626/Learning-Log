@@ -99,7 +99,7 @@ def block_to_markdown(block):
         if not table_rows:
             return ""
     
-        markdown = ""
+        markdown = "\n"
     
         # 헤더
         markdown += "| " + " | ".join(table_rows[0]) + " |\n"
