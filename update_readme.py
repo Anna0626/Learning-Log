@@ -84,32 +84,32 @@ def block_to_markdown(block):
 
     # 추가 시작 
     elif b_type == 'table':
-    rows = get_page_blocks(block['id'])
-    markdown = ""
-    table_rows = []
-
-    for row in rows:
-        if row['type'] == 'table_row':
-            cells = row['table_row']['cells']
-            row_text = [
-                extract_text_from_rich_text(cell) if cell else ""
-                for cell in cells
-            ]
-            table_rows.append(row_text)
-
-    if not table_rows:
-        return ""
-
-    # 헤더
-    header = "| " + " | ".join(table_rows[0]) + " |\n"
-    divider = "| " + " | ".join(["---"] * len(table_rows[0])) + " |\n"
-    markdown += header + divider
-
-    # 본문
-    for row in table_rows[1:]:
-        markdown += "| " + " | ".join(row) + " |\n"
-
-    return markdown + "\n"
+        rows = get_page_blocks(block['id'])
+        markdown = ""
+        table_rows = []
+    
+        for row in rows:
+            if row['type'] == 'table_row':
+                cells = row['table_row']['cells']
+                row_text = [
+                    extract_text_from_rich_text(cell) if cell else ""
+                    for cell in cells
+                ]
+                table_rows.append(row_text)
+    
+        if not table_rows:
+            return ""
+    
+        # 헤더
+        header = "| " + " | ".join(table_rows[0]) + " |\n"
+        divider = "| " + " | ".join(["---"] * len(table_rows[0])) + " |\n"
+        markdown += header + divider
+    
+        # 본문
+        for row in table_rows[1:]:
+            markdown += "| " + " | ".join(row) + " |\n"
+    
+        return markdown + "\n"
 
     #추가 끝
 
