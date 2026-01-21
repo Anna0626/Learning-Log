@@ -3,9 +3,9 @@ name: Update Notion Log
 on:
   schedule:
     # 매일 15:05 UTC (한국 시간 00:05) 실행 #'55 14 * * *'
-    #- cron: '5 15 * * *'
+    - cron: '5 15 * * *'
     # 매일 한국 시간 10:00 실행 Test
-    - cron: '0 1 * * *'
+    #- cron: '0 1 * * *'
 
 
 
