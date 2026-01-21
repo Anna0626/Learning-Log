@@ -134,12 +134,16 @@ def save_as_markdown(page, date_str):
     date_obj = datetime.strptime(date_str, "%Y-%m-%d")
     year = date_obj.strftime("%Y")
     month = date_obj.strftime("%m")
+    #추가 
+    day = date_obj.strftime("%d")
     
-    directory = f"{SAVE_DIR_ROOT}/{year}/{month}"
+    #directory = f"{SAVE_DIR_ROOT}/{year}/{month}"
+    directory = f"{SAVE_DIR_ROOT}/{year}/{month}/{day}"
     os.makedirs(directory, exist_ok=True)
     
     safe_title = sanitize_filename(title)
-    filename = f"{directory}/{date_str}_{safe_title}.md"
+    #filename = f"{directory}/{date_str}_{safe_title}.md"
+    filename = f"{directory}/{safe_title}.md"
     
     blocks = get_page_blocks(page_id)
     markdown_content = f"# {title}\n\n"
