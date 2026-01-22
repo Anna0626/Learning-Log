@@ -35,9 +35,9 @@ jobs:
       - name: Commit and Push
         run: |
           # git config --global user.name "GitHub Action"
-          # git config --global user.email EMAIL_KEY
+          # git config --global user.email "action@github.com"
           git config --global user.name "Anna0626"
-          git config --global user.email "Anna0626@users.noreply.github.com"
+          git config --global user.email "${{ secrets.COMMIT_EMAIL }}"
           git add .
           git commit -m "docs: update notion log" || exit 0
           git push
