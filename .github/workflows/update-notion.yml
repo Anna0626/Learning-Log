@@ -41,3 +41,5 @@ jobs:
           git add .
           git commit -m "docs: update notion log" || exit 0
           git push
+
+          echo "$(date)" >> action_test.log
